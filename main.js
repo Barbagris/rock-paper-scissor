@@ -42,25 +42,27 @@ function playRound(getComputerChoice,PlayerSelectiont){
   else if(playerChoice==='rock' && computerChoice==='paper') {
     return'You lose! Paper beats Rock';
   }
-  else if (playerChoice=computerChoice) {
+  else if (playerChoice===computerChoice) {
     return "It's a tie try again"
   }
 }
-
 const resultado = playRound(getComputerChoice, PlayerSelectiont);
 
+let playerPuntuation = 0
+let computerPuntuation = 0 
+let counter
 
-function game (){
-  let playerPuntuation = 0
-  let computerPuntuation = 0 
-  function roundcounter (){
-      if (resultado='You lose! Scissors beats Paper' || 'You lose! Rock beats Scissors' || 'You lose! Scissors beats Paper'){
-        counter = (computerPuntuation)+1
-      }
-      else if (resultado='You win! Scissors beats Paper' || 'You win! Rock beats Scissors' || 'You win! Scissors beats Paper'){
-        counter = (playerPuntuation)+1
-      }
-    }
+function roundcounter (){
+  if (resultado='You lose! Scissors beats Paper' || 'You lose! Rock beats Scissors' || 'You lose! Scissors beats Paper'){
+    counter = (computerPuntuation)+1 
+  }
+  else if (resultado='You win! Scissors beats Paper' || 'You win! Rock beats Scissors' || 'You win! Scissors beats Paper'){
+    counter = (playerPuntuation)+1
+  }
+}
+
+function finishgame (){
+  
   if (playerPuntuation=3){
     console.log('YOU WIN THE GAME!');
   }
@@ -69,4 +71,5 @@ function game (){
   }
 }
 
-//Buscar como funcionan los for en la proxima leccion y ver como incluirlo para que funcione.
+
+console.log(resultado);
