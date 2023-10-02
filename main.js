@@ -3,7 +3,7 @@
 // Armar los output a partir de condicionales en los que salga quien gana 
 // Preparar un contador que lleve el conteo y defina al ganador
 
-let 
+const PlayerSelectiont=prompt('Rock, Paper or Scissors?')
 
 function getComputerChoice(){
     function random(number) {
@@ -21,10 +21,21 @@ function getComputerChoice(){
     }
 }
 
-
-const PlayerSelectiont=prompt('Rock, Paper or Scissors?')
-
 function playRound(getComputerChoice,PlayerSelectiont){
-
-
+  let playerChoice= PlayerSelectiont.toLowerCase();
+  let computerChoice=getComputerChoice().toLowerCase()
+  if (playerChoice==='rock' && computerChoice==='scissors'){
+    return console.log('You win! Rock beats Scissors');
+  }
+  else if (playerChoice==='scissors' && computerChoice==='paper'){
+    return console.log('You win! Scissors beats Paper');
+  }
+  else if (playerChoice==='paper' && computerChoice==='rock'){
+    return console.log('You win! Paper beats Rock');
+  }
+  else {
+    console.log('You lose!');
+  }
 }
+
+playRound(getComputerChoice, PlayerSelectiont);
