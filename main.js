@@ -3,6 +3,9 @@
 // Armar los output a partir de condicionales en los que salga quien gana 
 // Preparar un contador que lleve el conteo y defina al ganador
 
+let playerPuntuation = 0
+let computerPuntuation = 0 
+let counter
 const PlayerSelectiont=prompt('Rock, Paper or Scissors?')
 
 function getComputerChoice(){
@@ -22,8 +25,8 @@ function getComputerChoice(){
 }
 
 function playRound(getComputerChoice,PlayerSelectiont){
-  let playerChoice= PlayerSelectiont.toLowerCase();
-  let computerChoice=getComputerChoice().toLowerCase()
+  var playerChoice= PlayerSelectiont.toLowerCase();
+  var computerChoice=getComputerChoice().toLowerCase()
   if (playerChoice==='rock' && computerChoice==='scissors'){
     return 'You win! Rock beats Scissors';
   }
@@ -46,20 +49,18 @@ function playRound(getComputerChoice,PlayerSelectiont){
     return "It's a tie try again"
   }
 }
-const resultado = playRound(getComputerChoice, PlayerSelectiont);
+const resultado1round = playRound(getComputerChoice, PlayerSelectiont);
 
-let playerPuntuation = 0
-let computerPuntuation = 0 
-let counter
-
-function roundcounter (){
-  if (resultado='You lose! Scissors beats Paper' || 'You lose! Rock beats Scissors' || 'You lose! Scissors beats Paper'){
-    counter = (computerPuntuation)+1 
+//function roundcounter (resultado1round){
+  if (resultado1round==='You lose! Scissors beats Paper' || 'You lose! Rock beats Scissors' || 'You lose! Scissors beats Paper'){
+    computerPuntuation++
+    //return [computerPuntuation,playerPuntuation];
   }
-  else if (resultado='You win! Scissors beats Paper' || 'You win! Rock beats Scissors' || 'You win! Scissors beats Paper'){
-    counter = (playerPuntuation)+1
+  else if (resultado1round==='You win! Scissors beats Paper' || 'You win! Rock beats Scissors' || 'You win! Scissors beats Paper'){
+    playerPuntuation++
+   // return [computerPuntuation,playerPuntuation];
   }
-}
+//}
 
 function finishgame (){
   
@@ -71,5 +72,7 @@ function finishgame (){
   }
 }
 
-
-console.log(resultado);
+//Este de abajo fue un primer intento pero con lo otro funciona
+//console.log(resultado1round,roundcounter(resultado1round));
+console.log(resultado1round);
+console.log('Tu puntaje es '+ playerPuntuation +' y el de tu oponente '+computerPuntuation);
