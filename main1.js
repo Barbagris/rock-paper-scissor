@@ -20,48 +20,44 @@ function getComputerChoice(){
 function playRound(getComputerChoice,PlayerSelectiont){
   var playerChoice= PlayerSelectiont.toLowerCase();
   var computerChoice=getComputerChoice().toLowerCase()
-  if (playerChoice==='rock' && computerChoice==='scissors'){
-    return 'You win! Rock beats Scissors';
+  if (playerChoice==='rock' && computerChoice==='scissors' ||
+  playerChoice==='scissors' && computerChoice==='paper' ||
+  playerChoice==='paper' && computerChoice==='rock') {
+  return 'You win! '+playerChoice+' beats '+computerChoice
   }
-  else if (playerChoice==='scissors' && computerChoice==='paper'){
-    return 'You win! Scissors beats Paper';
+  else if (playerChoice==='scissors' && computerChoice==='rock' ||
+  playerChoice==='paper' && computerChoice==='scissors' ||
+  playerChoice==='rock' && computerChoice==='paper') {
+    return 'You lose! '+computerChoice+' beats '+playerChoice  
   }
-  else if (playerChoice==='paper' && computerChoice==='rock'){
-    return 'You win! Paper beats Rock';
-  }
-  else if(playerChoice==='paper' && computerChoice==='scissors') {
-    return'You lose! Scissors beats Paper';
-  }
-  else if(playerChoice==='scissors' && computerChoice==='rock') {
-    return'You lose! Rock beats Scissors';
-  }
-  else if(playerChoice==='rock' && computerChoice==='paper') {
-    return'You lose! Paper beats Rock';
-  }
-  else if (playerChoice===computerChoice) {
-    return "It's a tie try again"
+  else {
+   return "It's a tie, try again next round" 
   }
 }
 
+console.log('This is a 5 rounds game. First to win 3 rounds won.');
+console.log("Let's go");
 
 while (playerPuntuation<3 && computerPuntuation<3){
   const PlayerSelectiont=prompt('Rock, Paper or Scissors?')
   const resultado = playRound(getComputerChoice,PlayerSelectiont)
   
-  if (resultado==='You lose! Scissors beats Paper' || 
-      resultado==='You lose! Rock beats Scissors' || 
-      resultado==='You lose! Scissors beats Paper'
-      ) {
+  if (resultado.startsWith ('You lose')) {
     computerPuntuation++;
   }
-  else if (resultado==='You win! Scissors beats Paper' || 
-           resultado==='You win! Rock beats Scissors' || 
-           resultado==='You win! Scissors beats Paper'
-           ){
+  else if (resultado.startsWith ('You win')){
     playerPuntuation++;
   }
+
  
   console.log(resultado);
-  console.log('Tu puntaje es '+playerPuntuation+' y el de tu oponente es '+ computerPuntuation);
+  console.log("Your score is "+playerPuntuation+" and your opponent's "+ computerPuntuation);
+}
+
+if (playerPuntuation=3){
+  console.log('You win the game! Congratulations');
+}
+else if (computerPuntuation){
+  console.log('You loose the game. Try again pressing F5');
 }
 
