@@ -28,10 +28,10 @@ function playRound(getComputerChoice,PlayerSelectiont){
   else if (playerChoice==='scissors' && computerChoice==='rock' ||
   playerChoice==='paper' && computerChoice==='scissors' ||
   playerChoice==='rock' && computerChoice==='paper') {
-    return 'You lose! '+computerChoice+' beats '+playerChoice  
+    return 'You lose! '+computerChoice+' beats '+playerChoice
   }
   else {
-   return "It's a tie, try again next round" 
+   return "It's a tie, try again next round"
   }
 }
 
@@ -54,10 +54,10 @@ while (playerPuntuation<3 && computerPuntuation<3){
   console.log("Your score is "+playerPuntuation+" and your opponent's "+ computerPuntuation);
 }
 
-if (playerPuntuation=3){
+if (playerPuntuation===3){
   console.log('You win the game! Congratulations');
 }
-else if (computerPuntuation){
+else if (computerPuntuation===3){
   console.log('You loose the game. Try again pressing F5');
 }
 
